@@ -12,30 +12,31 @@ const student = {
 };
 
 
-exports.findStudentbyId = function (student_id, cb) {
-  //-- call external api 
-          request({
-            method: "GET",
-            uri: EXTERNAL_API+student_id,
-            headers: {
-                Authorization: `Bearer ${accessToken}`
-            }
-        }).then((response) => {
-            console.log('Sent');
-            console.log({
-                "request": student_id,
-                "response": response
-            });
-
-           cb(response);
-
-        }).catch((err) => {
-            console.log('Error:', err.message);
-            console.log({
-                "Error": err.message
-            });
-        });
-}
+  exports.findStudentbyId = function (student_id, cb) {
+    //-- call external api 
+            request({
+              method: "GET",
+              uri: EXTERNAL_API+student_id,
+              headers: {
+                  Authorization: `Bearer ${accessToken}`
+              }
+          }).then((response) => {
+              console.log('Sent');
+              console.log({
+                  "request": student_id,
+                  "response": response
+              });
+  
+             cb(response);
+  
+          }).catch((err) => {
+              console.log('Error:', err.message);
+              console.log({
+                  "Error": err.message
+              });
+          });
+    }
+  
 
 exports.fakeStudentbyInfo = function (student_id, cb) {
 

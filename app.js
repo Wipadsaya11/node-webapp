@@ -1,3 +1,4 @@
+//app.js
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -16,11 +17,23 @@ app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/jquery-ui', express.static(__dirname + '/node_modules/jquery-ui/dist/'));
 
 /** remove fix route and use path solution **/
-/*
+/**
+ * app.get('/',function(req,res){
+ * res.sendFile('pubilc/index.html',{root: _dirname});
+ * });
+ */
+
+/**
+ Create my-route
+**/
+
 app.get('/', function(req, res) {
     res.sendFile('public/index.html', { root: __dirname });
 });
-/** */
+
+app.get('/form', function(req, res) {
+    res.sendFile('public/form.html', { root: __dirname });
+});
 
 app.get('/welcome', (req, res) =>
   res.send({
